@@ -26,9 +26,12 @@ public class Student {
 
     @Override
     public String toString() {
-        String result;
-        result = String.format("Student Name: %s %s\n> Average Score");
-        return result;
+        String result1;
+        String result2;
+        result1 = String.format("Student Name: %s %s\n> Average Score: %s\n>Exam Scores:\n%s"
+                                ,getFirstName(), getLastName(), getAverageExamScore().toString(), getExamScores());
+
+        return result1;
     }
 
     public String getFirstName() {

@@ -71,7 +71,8 @@ public class StudentTest {
 
         // When
         String actualOutput = student.toString();
-        String expectedOutput = "";
+        String expectedOutput = "Student Name: Leon Hunter\n> Average Score: 125.0\n>Exam Scores:\n" +
+                "100.0, 150.0, 250.0, 0.0";
         Assert.assertEquals(expectedOutput, actualOutput);
     }
 
