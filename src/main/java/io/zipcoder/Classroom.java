@@ -3,6 +3,7 @@ package io.zipcoder;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -53,8 +54,33 @@ public class Classroom {
     public void addStudent(Student student) {
 
         List<Student> myList = new ArrayList<>();
-        myList.add(student);
+        myList.add(0,student);
         Student[] temp = myList.toArray(new Student[myList.size()-1]);
         students = temp;
+    }
+
+    public void removeStudent(String firstName, String lastName) {
+
+        ArrayList<Student> myList = new ArrayList<>();
+        for(Student s : students) {
+            myList.add(s);
+        }
+        Integer x = students.length;
+        LOGGER.info(x.toString());
+    }
+
+    public static void main(String[] args) {
+        int maxNumberOfStudents = 1;
+        Classroom classroom = new Classroom(maxNumberOfStudents);
+        Double[] examScores1 = { 100.0, 150.0, 250.0, 0.0 };
+        Student student1 = new Student("Leon", "Hunter", examScores1);
+        Double[] examScores2 = { 100.0, 150.0, 250.0, 0.0 };
+        Student student2 = new Student("Jim", "Smith", examScores2);
+        Student student3 = new Student("Sara", "Hill", examScores2);
+        classroom.addStudent(student1);
+        classroom.addStudent(student2);
+        classroom.addStudent(student3);
+
+        classroom.removeStudent("Jim", "Hunter");
     }
 }

@@ -37,10 +37,9 @@ public class ClassroomTest {
 
         // When
         Student[] preEnrollment = classroom.getStudents();
-        LOGGER.info(Arrays.toString(preEnrollment));
         classroom.addStudent(student);
         Student[] postEnrollment = classroom.getStudents();
-        LOGGER.info(Arrays.toString(postEnrollment));
+
 
         // Then
         String preEnrollmentAsString = Arrays.toString(preEnrollment);
@@ -51,5 +50,30 @@ public class ClassroomTest {
         System.out.println(postEnrollmentAsString);
 
     }
+//@Test
+//    public void TestRemoveStudent(){
+//        // : Given
+//        int maxNumberOfStudents = 1;
+//        Classroom classroom = new Classroom(maxNumberOfStudents);
+//        Double[] examScores = { 100.0, 150.0, 250.0, 0.0 };
+//        Student student = new Student("Leon", "Hunter", examScores);
+//
+//        // When
+//        classroom.addStudent(student);
+//        Student[] preEnrollment = classroom.getStudents();
+//        classroom.removeStudent("Leon", "Hunter");
+//        Student[] postEnrollment = classroom.getStudents();
+//
+//
+//        // Then
+//        String preEnrollmentAsString = Arrays.toString(preEnrollment);
+//        String postEnrollmentAsString = Arrays.toString(postEnrollment);
+//    System.out.println("][][][[]][]][]]]");
+//        System.out.println("===========================");
+//        System.out.println(preEnrollmentAsString);
+//        System.out.println("===========================");
+//        System.out.println(postEnrollmentAsString);
+//
+//    }
 
 }
