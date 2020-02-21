@@ -84,5 +84,13 @@ public class Student {
         return avg;
     }
 
+    public Double sumExamScores(){
+        Double sum = 0.0;
+        for(Double d : examScores) {
+            sum += d;
+        }
+        return sum;
+    }
+
 
 }
