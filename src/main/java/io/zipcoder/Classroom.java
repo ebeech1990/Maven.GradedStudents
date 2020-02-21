@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 public class Classroom {
     private static final Logger LOGGER = Logger.getLogger(Classroom.class.getName());
-    private Student[] students;
+    ArrayList<Student> students = new ArrayList<>();
     private int maxNumOfStudents;
 
     public Classroom(int maxNumOfStudents){
@@ -17,24 +17,18 @@ public class Classroom {
     }
 
     public Classroom(Student[] students){
-      this.students = new Student[students.length];
-      int i = 0;
-//           while (i< students.length-1) {
-//               this.students[i] = students[i];
-//               i++;
-//           }
-        for(Student s : students) {
-            this.students[i] = s;
-            i++;
-        }
+      for(Student s : students) {
+          this.students.add(s);
+      }
         }
 
 
     public Classroom(){
-        this.students = new Student[30];
+
     }
 
-    public Student[] getStudents() {
+    public ArrayList<Student> getStudents() {
+
         return students;
     }
 
@@ -46,41 +40,28 @@ public class Classroom {
 
         }
 
-        result = sum/students.length;
+        result = sum/students.size();
 
         return result;
     }
 
     public void addStudent(Student student) {
+        students.add(student);
 
-        List<Student> myList = new ArrayList<>();
-        myList.add(0,student);
-        Student[] temp = myList.toArray(new Student[myList.size()-1]);
-        students = temp;
     }
 
     public void removeStudent(String firstName, String lastName) {
+           Iterator<Student> it = students.iterator();
 
-        ArrayList<Student> myList = new ArrayList<>();
-        for(Student s : students) {
-            myList.add(s);
-        }
-        Integer x = students.length;
-        LOGGER.info(x.toString());
+           while (it.hasNext()){
+
+                Student x = it.next();
+               if(x.getFirstName().equals(firstName)) {
+                   it.remove();
+               }
+           }
+
     }
 
-    public static void main(String[] args) {
-        int maxNumberOfStudents = 1;
-        Classroom classroom = new Classroom(maxNumberOfStudents);
-        Double[] examScores1 = { 100.0, 150.0, 250.0, 0.0 };
-        Student student1 = new Student("Leon", "Hunter", examScores1);
-        Double[] examScores2 = { 100.0, 150.0, 250.0, 0.0 };
-        Student student2 = new Student("Jim", "Smith", examScores2);
-        Student student3 = new Student("Sara", "Hill", examScores2);
-        classroom.addStudent(student1);
-        classroom.addStudent(student2);
-        classroom.addStudent(student3);
 
-        classroom.removeStudent("Jim", "Hunter");
-    }
 }
