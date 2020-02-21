@@ -1,5 +1,9 @@
 package io.zipcoder;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Logger;
 
 public class Classroom {
@@ -29,7 +33,7 @@ public class Classroom {
         this.students = new Student[30];
     }
 
-    public Student[] getStudents(Student[] students) {
+    public Student[] getStudents() {
         return students;
     }
 
@@ -42,7 +46,15 @@ public class Classroom {
         }
 
         result = sum/students.length;
-        LOGGER.info(result.toString());
+
         return result;
+    }
+
+    public void addStudent(Student student) {
+
+        List<Student> myList = new ArrayList<>();
+        myList.add(student);
+        Student[] temp = myList.toArray(new Student[myList.size()-1]);
+        students = temp;
     }
 }
