@@ -60,9 +60,27 @@ public class Classroom {
 
     }
 
-//    public ArrayList<Student> getStudentsByScore() {
-//        //Collections.sort(students);
-//    }
+//    Double student1Score = student1.getAverageExamScore();//125.00 leon
+//    Double student2Score = student2.getAverageExamScore();//112.5 jim
+//    Double student3Score = student3.getAverageExamScore();//125.00 sara
+//125,112,125 0
+//125,112,125 1
+
+
+
+    public Double[] getStudentsByScore() {
+        Double[] avgs = new Double[students.size()];
+        int i = 0;
+       for(Student s : students) {
+          avgs[i] = s.getAverageExamScore();
+                   i++;
+       }
+       for(Double d : avgs){
+           System.out.println(d);
+       }
+
+       return avgs;
+    }
 
 
 }

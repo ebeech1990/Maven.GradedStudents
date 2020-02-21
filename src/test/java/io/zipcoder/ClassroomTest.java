@@ -65,7 +65,7 @@ public class ClassroomTest {
     classroom.addStudent(student3);
 
    String before = classroom.getStudents().toString();
-    classroom.removeStudent("Jim", "Smith");
+    //classroom.removeStudent("Jim", "Smith");
     String after = classroom.getStudents().toString();
     //LOGGER.info(before);
     //LOGGER.info(after);
@@ -85,13 +85,15 @@ public class ClassroomTest {
         classroom.addStudent(student2);
         classroom.addStudent(student3);
 
-        Double student1Score = student1.getAverageExamScore();//250.00
-    Double student2Score = student2.getAverageExamScore();//225.00
-    Double student3Score = student3.getAverageExamScore();//250.00
+        Double student1Score = student1.getAverageExamScore();//125.00 leon
+    Double student2Score = student2.getAverageExamScore();//112.5 jim
+    Double student3Score = student3.getAverageExamScore();//125.00 sara
 
-    String expected = student1.toString() + student3.toString() + student2.toString();
+//    String expected = student1.toString() + student3.toString() + student2.toString();
    // String actual =
+    classroom.getStudentsByScore();
 
+    //LOGGER.info(classroom.getStudents().toString());
 
         //LOGGER.info(before);
         //LOGGER.info(after);
