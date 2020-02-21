@@ -1,10 +1,7 @@
 package io.zipcoder;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.util.logging.Logger;
 
 public class Classroom {
@@ -56,12 +53,16 @@ public class Classroom {
            while (it.hasNext()){
 
                 Student x = it.next();
-               if(x.getFirstName().equals(firstName)) {
+               if((x.getFirstName().equals(firstName)) && (x.getLastName().equals(lastName))) {
                    it.remove();
                }
            }
 
     }
+
+//    public ArrayList<Student> getStudentsByScore() {
+//        //Collections.sort(students);
+//    }
 
 
 }
