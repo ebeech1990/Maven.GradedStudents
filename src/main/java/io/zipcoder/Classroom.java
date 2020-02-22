@@ -24,6 +24,8 @@ public class Classroom {
 
     }
 
+
+
     public ArrayList<Student> getStudents() {
 
         return students;
@@ -71,14 +73,42 @@ public class Classroom {
     public ArrayList<Student> getStudentsByScore() {
         Comparator<Student> avgComp = Comparator.comparing(Student::getAverageExamScore).reversed().thenComparing(Student::getLastName);
         Collections.sort(students,avgComp);
-        for(Student s : students) {
-            System.out.println(s);
-        }
-//85 leon
-//65 sara
-//65 tara
 
        return students;
+    }
+
+    public  String assignLetterGrade() {
+        String result = "";
+        for(Student s : students) {
+            Double percent = (s.getAverageExamScore() * 100) / (getAverageExamScore());
+            if(percent >= 90.0) {
+                result =  "A";
+            }
+            else if(percent >= 71.0 && percent <= 89.0) {
+                result = "B";
+            }
+            else if(percent >= 50.0 && percent <= 70.0) {
+                result = "C";
+            }
+            else if(percent >= 12.0 && percent <= 49.0) {
+                result = "D";
+            }
+            else {
+                result = "F";
+            }
+
+        }
+        return result;
+    }
+
+    public HashMap<String,String> getGradeBook() {
+        HashMap<String,String> map = new HashMap<>();
+        for(Student s : students) {
+            map.put(s.getLastName(), s.getAverageExamScore().toString());
+        }
+
+
+        return map;
     }
 
 

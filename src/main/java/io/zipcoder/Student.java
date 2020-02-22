@@ -60,6 +60,17 @@ public class Student {
         return scoreString;
     }
 
+//    public ArrayList<Double> getExamScores(){
+//        ArrayList<Double> arr = new ArrayList<>();
+//        int i = 0;
+//        for(Double score : examScores) {
+//            arr.set(i,score);
+//            i++;
+//        }
+//
+//        return arr;
+//    }
+
     public Double addExamScore(Double score) {
         examScores.add(score);
         return score;
@@ -91,6 +102,8 @@ public class Student {
         }
         return sum;
     }
+
+
 
 
 }
