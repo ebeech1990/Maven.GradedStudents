@@ -68,18 +68,17 @@ public class Classroom {
 
 
 
-    public Double[] getStudentsByScore() {
-        Double[] avgs = new Double[students.size()];
-        int i = 0;
-       for(Student s : students) {
-          avgs[i] = s.getAverageExamScore();
-                   i++;
-       }
-       for(Double d : avgs){
-           System.out.println(d);
-       }
+    public ArrayList<Student> getStudentsByScore() {
+        Comparator<Student> avgComp = Comparator.comparing(Student::getAverageExamScore).reversed().thenComparing(Student::getLastName);
+        Collections.sort(students,avgComp);
+        for(Student s : students) {
+            System.out.println(s);
+        }
+//85 leon
+//65 sara
+//65 tara
 
-       return avgs;
+       return students;
     }
 
 
