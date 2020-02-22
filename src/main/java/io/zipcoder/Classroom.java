@@ -78,28 +78,11 @@ public class Classroom {
        return students;
     }
 
-    public static   Double getMaxValue(Double[] numbers){
-        Double maxValue = numbers[0];
-        for(int i=0;i < numbers.length-1;i++){
-            if(numbers[i] > maxValue){
-                maxValue = numbers[i];
-            }
-        }
-        return maxValue;
-    }
 
+    public  String assignLetterGrade(Double highest, Double avg) {
 
-    public  String assignLetterGrade(Double d) {
-        String result = "";
-        for(Student s : students) {
-            Double[] arr = new Double[s.examScores.size()];
-            String [] stringScores = s.getExamScores().split(",");
-            for(int i = 0; i < arr.length; i++) {
-                arr[i] = Double.parseDouble(stringScores[i]);
-                System.out.println(arr[i]);
-            }
-            System.out.println("------");
-            Double percent = (s.getAverageExamScore() * 100) / (getMaxValue(arr));
+           String result = "";
+            Double percent = (avg * 100) / (highest);
             if(percent >= 90.0) {
                 result =  "A";
             }
@@ -116,14 +99,14 @@ public class Classroom {
                 result = "F";
             }
 
-        }
+
         return result;
     }
 
     public HashMap<String,String> getGradeBook() {
         HashMap<String,String> map = new HashMap<>();
         for(Student s : students) {
-            map.put(s.getLastName(), assignLetterGrade(s.getAverageExamScore()));
+            map.put(s.getLastName(), assignLetterGrade(s.getHighestScore(s.getExamScores()),s.getAverageExamScore()));
         }
 
 

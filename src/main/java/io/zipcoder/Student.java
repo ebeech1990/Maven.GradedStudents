@@ -103,7 +103,29 @@ public class Student {
         return sum;
     }
 
+    public static   Double getMaxValue(Double[] numbers){
+        Double maxValue = numbers[0];
+        for(int i=0;i < numbers.length-1;i++){
+            if(numbers[i] > maxValue){
+                maxValue = numbers[i];
+            }
+        }
+        return maxValue;
+    }
 
+    public Double getHighestScore(String scores) {
+        Double result = 0.0;
+        Double[] arr = new Double[examScores.size()];
+        String[] stringScores = scores.split(",");
+
+            for (int i = 0; i < arr.length; i++) {
+                arr[i] = Double.parseDouble(stringScores[i]);
+            }
+            result = getMaxValue(arr);
+
+        return result;
+
+    }
 
 
 }
