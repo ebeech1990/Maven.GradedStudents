@@ -103,11 +103,11 @@ public class ClassroomTest {
     public void TestGetGradeBook() {
         int maxNumberOfStudents = 3;
         Classroom classroom = new Classroom(maxNumberOfStudents);
-        Double[] examScores1 = {100.0, 150.0, 250.0, 0.0};
+        Double[] examScores1 = {100.0, 150.0, 250.0, 10.0};
         Student student1 = new Student("Leon", "Hunter", examScores1);
-        Double[] examScores2 = {50.0, 150.0, 250.0, 0.0};
+        Double[] examScores2 = {50.0, 150.0, 100.0, 10.0};
         Student student2 = new Student("Jim", "Smith", examScores2);
-        Double[] examScores3 = {100.0, 150.0, 250.0, 0.0};
+        Double[] examScores3 = {11.0, 15.0, 10.0, 10.0};
         Student student3 = new Student("Sara", "Hill", examScores3);
 
         classroom.addStudent(student1);
@@ -115,8 +115,11 @@ public class ClassroomTest {
         classroom.addStudent(student3);
 
         Double student1Score = student1.getAverageExamScore();//125.00 leon
+
         Double student2Score = student2.getAverageExamScore();//112.5 jim
+
         Double student3Score = student3.getAverageExamScore();//125.00 sara
+
 
 //    String expected = student1.toString() + student3.toString() + student2.toString();
         // String actual =

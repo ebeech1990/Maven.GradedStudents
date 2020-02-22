@@ -60,6 +60,7 @@ public class StudentTest {
         Double actualOutput = student.getAverageExamScore();
         Double expectedOutput = 125.0;
         Assert.assertEquals(expectedOutput, actualOutput);
+        System.out.println(actualOutput);
     }
 
     @Test

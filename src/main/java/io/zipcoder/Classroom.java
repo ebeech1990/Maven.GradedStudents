@@ -34,6 +34,7 @@ public class Classroom {
     public Double getAverageExamScore(){
         Double sum = 0.0;
         Double result = 0.0;
+
         for(Student s : students) {
            sum += s.sumExamScores();
 
@@ -93,9 +94,11 @@ public class Classroom {
         for(Student s : students) {
             Double[] arr = new Double[s.examScores.size()];
             String [] stringScores = s.getExamScores().split(",");
-            for(int i = 0; i < arr.length-1; i++) {
+            for(int i = 0; i < arr.length; i++) {
                 arr[i] = Double.parseDouble(stringScores[i]);
+                System.out.println(arr[i]);
             }
+            System.out.println("------");
             Double percent = (s.getAverageExamScore() * 100) / (getMaxValue(arr));
             if(percent >= 90.0) {
                 result =  "A";
